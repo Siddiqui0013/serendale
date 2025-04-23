@@ -11,7 +11,7 @@ export default function Home() {
       <FeaturesSection />
       <UseCasesSection />
 
-      <div className="flex flex-col w-full space-y-4 items-center justify-center py-20">
+      <div className="flex flex-col w-full space-y-4 items-center justify-center md:py-20 py-8">
       <h1 className="bg-gradient-to-r text-3xl md:text-5xl from-fuchsia-500 via-violet-500 to-blue-400 text-transparent bg-clip-text">
         Ready to Get Started?
       </h1>
@@ -30,9 +30,9 @@ export default function Home() {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
+    <section className="relative md:min-h-screen flex flex-col items-center justify-center px-4 md:py-20 py-8 overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-1 opacity-50 top-[30%] z-0 w-full h-full">
+      <div className="absolute inset-1 opacity-50 md:top-[30%] top-[0%] z-0 w-full h-full">
         <Image src="/bg-hero.png" alt="Background" fill priority className="object-cover w-[80%] transform -rotate-6" />
       </div>
 
@@ -52,7 +52,7 @@ function HeroSection() {
         </h1>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
+        <div className="flex gap-4 mb-16">
           <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-8 py-6 text-lg">
             <Link href="/get-started">Get started</Link>
           </Button>
@@ -150,32 +150,32 @@ function FeaturesSection() {
   ]
 
   return (
-    <section className="py-20 px-4">
+    <section className="md:py-20 py-8 px-4">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 overflow-hidden">
           {/* Standard Features Panel */}
-          <div className="bg-[#2c2c2c] rounded-2xl p-10 flex flex-col space-y-8">
+          <div className="bg-[#2c2c2c] rounded-2xl p-4 md:p-10 flex flex-col md:space-y-8 space-y-4">
             {features.map((feature, index) => (
               <div key={`standard-${index}`} className="flex justify-between items-center space-x-4">
                 <div className="flex gap-4">
                 <feature.icon className="w-6 h-6 text-white" />
                 <span className="text-white text-lg">{feature.label}</span>
                 </div>
-                <p>.......................................</p>
+                <p className="hidden md:block ">.......................................</p>
                 <span className="text-lg text-red-400">Manual Integeration</span>
               </div>
             ))}
           </div>
 
           {/* Premium Features Panel */}
-          <div className="bg-[#2c2c2c] rounded-2xl p-10 flex flex-col space-y-8">
+          <div className="bg-[#2c2c2c] rounded-2xl p-4 md:p-10 flex flex-col md:space-y-8 space-y-4">
             {features.map((feature, index) => (
               <div key={`premium-${index}`} className="flex items-center justify-between space-x-4">
                 <div className="flex gap-4">
                 <feature.icon className="w-6 h-6 text-[#ff1cf7]" />
                 <span className="text-lg ">{feature.label}</span>
                 </div>
-                <p>..................................................................</p>
+                <p  className="hidden md:block">..................................................................</p>
                 <span className="text-[#ff1cf7] text-lg">Built In</span>
               </div>
             ))}
@@ -239,11 +239,11 @@ function UseCasesSection() {
   ]
 
   return (
-    <section className="py-20 px-4">
+    <section className="md:py-20 py-8 px-4">
       <div className="container mx-auto">
         {/* Section title */}
         <div className="text-center mb-16">
-          <h2 className="text-[#ff1cf7] text-2xl font-medium mb-4">use cases</h2>
+          <h2 className="text-[#ff1cf7] text-2xl font-medium mb-4 capitalize">use cases</h2>
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold">
             <span className="bg-gradient-to-r from-fuchsia-500 via-violet-500 to-blue-400 text-transparent bg-clip-text">
               Save time, money and headaches.
@@ -319,7 +319,7 @@ function FaqSection() {
   ]
 
   return (
-    <section className="py-20 px-4">
+    <section className="md:py-20 py-8 px-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left side - Heading and CTA buttons */}
@@ -396,7 +396,7 @@ function FaqSection() {
 
 function Footer() {
   return (
-    <footer className="bg-[#2c2c2c] py-16 px-4">
+    <footer className="bg-[#2c2c2c] md:py-6 py-8 px-4">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between">
           {/* Left side - Logo, text and social icons */}
@@ -467,7 +467,7 @@ function Footer() {
           </div>
 
           {/* Right side - Navigation links */}
-          <div className="flex flex-col items-end space-y-4">
+          <div className="flex flex-col md:items-end items-start space-y-4">
             <Link href="/company" className="text-white hover:text-fuchsia-400 text-xl transition-colors">
               Company
             </Link>
